@@ -1,0 +1,59 @@
+body{
+    font-family: Verdana;
+}
+header {
+    background-color: #AFAFAF;
+    color: #FF5F00;
+    text-align: center;
+}
+nav a
+{
+    background-color: #0082D1;
+    color: white; /*farbe der buchstaben*/
+    font-weight: bold;
+    border-color: grey;
+    border-width: 2px;/* breite der Liie*/
+    border-radius: 10px; /* radius steht für den runde umrandung-->*/
+    border-style: solid;
+
+}
+nav a:hover
+{
+   background-color: #AFAFAF;
+    color: #FF5F00;
+
+}
+tr{
+border-style: solid;
+
+}
+table th{
+
+    color: white;
+    background-color: #76B900;
+    border-color: black;
+    border-style: solid;
+}
+th , td
+{
+
+    border-style: solid;
+}
+table{
+    border-style: solid;
+    width: 80%;
+    border-collapse: collapse;
+    box-shadow: 5px 5px 5px gray;
+
+}
+
+footer
+{
+    background-color:#FF5F00 ;
+    color: black;
+    text-align: center;
+
+
+
+}
+
