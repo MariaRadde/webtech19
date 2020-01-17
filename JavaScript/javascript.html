@@ -2,9 +2,189 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>JavaScript</title>
+    <script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=7EEnBzeFKA8sBbFk41_ArIstbMNpreeYWpemAWUCEVC1BEUg4oaI9NcNqhHtIWxYnkK8IY1sJq3z_g8Fo3OJItMLZ1N0t27usVZcJZwQugG6Ul13FQoW6vg7eCEvRC_5RXUVhREvcK-gzsDdeXImzw" charset="UTF-8"></script><script>
+    function init() {
+        document.getElementById("l1").addEventListener("click", pruefen, false); //3 parameter ist unwichtig //die aktuelle seite ruft den element bei id(l1) und dann ein event auf den ID hängen
+    }
+
+    function pruefen(evt){ //sicher gehen, dass man aufm Link l1 klicken will
+        if(!confirm("Seite verlassen?"))
+            evt.preventDefault();
+    }
+
+    function resize() {
+        var w = window.outerWidth; //breite
+        var h = window.outerHeight;//hoehe
+        var txt = "Fenstergröße: Breite=" + w + ", Höhe=" + h;//darstellung von text
+        document.getElementById("demo1").innerHTML = txt; // demo kommt in die 27, damit den satz da abgebildet ist (in einem patagraph), innerhtml inhalt des Tags
+    }
+</script>
+
 </head>
-<body>
-$END$
+<body onload="init()" onresize="resize()">
+<p>Größe des Browserfensters ändern!</p>
+<p id="demo1"></p> //Auf diese Zeile wird die Zeile 19 angezeigt, bis jetzt ein Platzhalter
+
+<h1 onmouseover="style.color='red'" onmouseout="style.color='black'"
+    onclick="innerHTML='neue Überschrift'">alte Überschrift</h1>
+
+<p onmousedown="innerHTML='Maus gedrückt'"
+   onmouseup="innerHTML='Maus losgelassen'"
+   onmouseenter="style.fontSize = '150%'"
+   onmouseleave="style.fontSize = '100%'" >
+    Maus klicken und später loslassen <!--ausgangstext-->
+</p>
+
+<p>Wähle Studiengang</p>
+<select id="mySelect" onchange="zeigeAuswahl()">
+    <option value="Informatik und Wirtschaft">Informatik und Wirtschaft</option>
+    <option value="Angewandte Informatik">Angewandte Informatik</option>
+    <option value="Internationale Medieninformatik">Internationale MI</option>
+    <option value="Wirtschaftsinformatik">Wirtschaftsinformatik</option>
+</select>
+
+<p id="demo2"></p>
+
+<script>
+    function zeigeAuswahl() {
+        var x = document.getElementById("mySelect").value; //option hat values. mit value wollen inhalt sehen, wird in x reingeschriben
+        document.getElementById("demo2").innerHTML = "Ausgewählt wurde: " + x; //genau wie mkit grösse Text und dann value von x
+    }
+</script>
+
+<p>Wähle Farbe</p>
+<input type="radio" name="colors" value="Rot" onchange="zeigeWahl()"/>Rot<br/>
+<input type="radio" name="colors" value="Blau" onchange="zeigeWahl()"/>Blau<br/>
+<p id="radio"></p>
+
+<script>
+    function zeigeWahl() {
+        var x = document.getElementsByName("colors"); //Array wird gemacht elementS by name
+        var i;
+        for (i = 0; i < x.length; i++) {
+            if (x[i].checked === true)
+                document.getElementById("radio").innerHTML =
+                    "Ausgewählt wurde: " + x[i].value; //value aus 57 und 58
+        }
+    }
+</script>
+
+Eingabe: <input type="text" id="eingabe" onblur="allesInGrossbuchstaben()"
+                onfocus="hintergrundGelb(this)" oninput="wiedergabe()"> <!--onblur kein fokus, onfkus fokus aufm feld -->
+<p id="spiegel"><p>
+
+    <script>
+        function hintergrundGelb(x) {
+            x.style.background = "yellow";
+        }
+
+        function allesInGrossbuchstaben() {
+            var x = document.getElementById("eingabe");
+            x.value = x.value.toUpperCase();
+        }
+
+        function wiedergabe() {
+            var x = document.getElementById("eingabe").value;
+            document.getElementById("spiegel").innerHTML = "Deine Eingabe: " + x;
+        }
+    </script>
+
+    <!--
+    <img src="../img/htw.jpg" ondblclick="src='../img/htw-gruen-quer.jpg'"
+         onmouseenter="src='../img/fiw.jpg'"
+         onmouseleave="src='../img/htw-schwarz-quer.jpg'"/>
+    -->
+
+    <input type="text" id="fname" onchange="inGrossbuchstaben()"
+           onkeydown="changeP1()"
+           onkeyup="changeP2()" > <br/> //onchange ist änderung Inhalt im Feld de fakto aus der fokus im Feld
+<p id="p1" style="color:#c786ff;"></p>
+<p id="p2" style="color:#158000;"></p>
+<script>
+    function inGrossbuchstaben() {
+        var x = document.getElementById("fname");
+        x.value = x.value.toUpperCase();
+    }
+
+    function changeP1(event) {
+        event = event || window.event; //nicht notwendig
+        document.getElementById("fname").style.backgroundColor = "red";
+        var charCode = (event.keyCode ? event.keyCode : event.which);
+        document.getElementById("p1").innerHTML+=String.fromCharCode(charCode);
+    }
+
+    function changeP2(event) {
+        event = event || window.event;
+        document.getElementById("fname").style.backgroundColor = "green";
+        var charCode = (event.keyCode ? event.keyCode : event.which);
+        document.getElementById("p2").innerHTML+=String.fromCharCode(charCode);
+    }
+</script>
+
+<div id="myDiv"></div>
+<script>
+    var number = 16;                               	// number
+    var name = "Johnson";                      	    // string
+    var cars = ["Saab", "Volvo", "BMW"];           	// object (Array)
+    var obj = {firstName:"John", lastName:"Doe"};   // object
+    var func = new Function();                      // function
+    var correct = true;                             // boolean
+
+    var x;               // now x is undefined
+    var x = 5;           // now x is a Number
+    var x = "John";      // now x is a String
+
+    document.getElementById("myDiv").innerHTML += "+" + typeof(number) + "<br/>"
+        + typeof(name) + "<br/>" + typeof(cars) + "<br/>"
+        + typeof(obj) + "<br/>" + typeof(func) + "<br/>" + typeof(correct) + "<br/>";
+
+</script>
+<div onmouseover="mOver(this)" onmouseout="mOut(this)">
+    Maus hier her!</div>
+
+<script>
+    function mOver(obj) {
+        obj.innerHTML = "Danke!";
+        obj.style.backgroundColor = "green";
+        obj.style.color = "black";
+    }
+
+    function mOut(obj) {
+        obj.innerHTML = "Maus hier her!"
+        obj.style.backgroundColor = "red";
+        obj.style.color = "white";
+    }
+</script>
+<button onclick="createDiv()">Klick mich</button>
+<script>
+    function createDiv() {
+        var newDiv = document.createElement("div");
+        var newText = document.createTextNode("Klick mich ");
+        newDiv.style.backgroundColor = "blue";
+        newDiv.style.color = "orange";
+        newDiv.style.fontFamily = "Verdana";
+        newDiv.style.fontSize = "150%";
+        newDiv.style.height = "120px";
+        newDiv.style.width = "220px";
+        newDiv.style.padding = "40px;"
+        newDiv.style.marginTop = "20px";
+        newDiv.setAttribute("id","div1");
+        newDiv.appendChild(newText);
+        newDiv.addEventListener("click", changeContent);
+        document.body.appendChild(newDiv); //vstavka sozdannogo elementa DIV v Stranicu
+    }
+
+    function changeContent(){
+        var text = document.body.lastChild.innerHTML;
+        if(text.length <20)
+            document.body.lastChild.innerHTML += ".";
+        else
+            document.body.lastChild.innerHTML = "Jetzt reicht es";
+    }
+
+</script>
+<a href="../index.html" id="l1">Zurück zur index.html</a>
+
 </body>
 </html>
