@@ -2,8 +2,21 @@
 <html lang="en">
 <head>
      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, scrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>Teilnehmer_in WebTech</title>
 <link href="styles/mystyles.css" rel="stylesheet">
+    <style>
+      li a:hover{
+          background-color: orange;
+       }
+
+        .table-hover > tbody > tr:hover{
+            background-color: #76B900;
+        }
+
+    </style>
 
 </head>
 
@@ -15,6 +28,33 @@
     <p></p>
 
 </header>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Alle</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="#A">A-G <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#H">H-L</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#M">M-R</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#S">S-Z</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Startseite</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!-- Nafigationsleiste aus Aufgabe 2
 <nav>
     <a href="../Aufgabe1/aufgabe1.html"> ALLE </a>
     <a href="../Aufgabe1/NN/ag.html" > A-G </a>
@@ -22,19 +62,21 @@
     <a href="../Aufgabe1/NN/mr.html"> M-R</a>
     <a href="../Aufgabe1/NN/sz.html "> S-Z</a>
     <a href="../Aufgabe1/aufgabe1.html"> Startseite</a>
-</nav>
+</nav> -->
 
 
     <p></p>
     <hl> Alle Teilnehmer_innen</hl>
 <section>
-    <table> <tr>
+    <table class="table table-striped table-hover table-responsive-md "> <!-- macht Tabelle mit linien und abstand   + table table-darf macht tabelle dunkel-->
+         <!--  <thead class="thead-dark"> obere Zeile dunkel-->
+        <tr>
         <th>Vorname</th>
         <th>Nachname</th>
         <th>E-Mail-Adresse</th>
         <th>IP-Adresse</th>
     </tr>
-        <tr>
+        <tr id="A">
             <td>Adam</td>
             <td>Anderson</td>
             <td>aanderson8@google.fr</td>
@@ -154,7 +196,7 @@
             <td>vgrahamk@aol.com</td>
             <td>165.219.171.1</td>
         </tr>
-        <tr>
+        <tr id="H">
             <td>Steven</td>
             <td>Hamilton</td>
             <td>shamiltonu@state.tx.us</td>
@@ -190,7 +232,7 @@
             <td>akim4@odnoklassniki.ru</td>
             <td>168.244.191.78</td>
         </tr>
-        <tr>
+        <tr id="M">
             <td>Jennifer</td>
             <td>Marshall</td>
             <td>jmarshallt@gnu.org</td>
@@ -280,7 +322,7 @@
             <td>kroseg@pinterest.com</td>
             <td>222.172.140.56</td>
         </tr>
-        <tr>
+        <tr id="S">
             <td>Steve</td>
             <td>Sanders</td>
             <td>ssanders1b@wikispaces.com</td>
