@@ -17,7 +17,7 @@
         befüllt ist. Kommentieren Sie diese Anweisung aus.
         Das Auslesen des $members-Array erfolgt dann unten in der Tabelle
     */
-    print_r($members);
+   /* print_r($members);*/
     /*
         in diesem php-Tag könnten Sie stattdessen prüfen, ob das $_GET-Array
         oder das $_POST-Array befüllt ist
@@ -46,4 +46,5 @@
     </table>
 </div>
 </body>
+
 </html>
