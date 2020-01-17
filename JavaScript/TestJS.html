@@ -2,9 +2,167 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>TestJS</title>
+    <script>
+        function test1() {
+            console.log("load");
+        }
+
+        function test2() {
+            console.log("resize");
+        }
+
+        function test3() {
+            console.log("button");
+        }
+
+        function test4() {
+            console.log(this.style.backgroundColor)
+
+
+            if (this.style.backgroundColor === "white") //farben vergleichen === ist ein typ vergleich
+            {
+                this.style.backgroundColor = "blue";
+                this.innerHTML = "Blue Button"; // musste gleich = sein und nicht ()
+
+            } else //document.getElementById("b1").ondblclick
+            {
+                this.style.backgroundColor = "white";
+                console.log("color changed white ");
+                this.innerHTML = "White Button";
+                // document.getElementsByTagName('b1')[0].innerHTML = 'White Button again'
+            }
+
+
+        }
+
+
+    </script>
 </head>
-<body>
-$END$
+<body onload="test1()" onresize="test2()">
+<button type="button" onclick="test3()"> KNOPKA 1</button>
+//beim Klicken am Button test3 wird aufgerufen
+<button type="button" onclick="test3()"> KNOPKA 2</button>
+<button id="b1" type="button" style="background-color: white"> KNOPKA 3</button>
+<button id="b2" type="button" style="background-color: white">KNOPKA 4</button>
+
+<div onClick=" clickit (this)" ondblclick=" dblclick (this)"> I am white button</div>
+<label for="first">Test</label> <!-- for="id" damit wenn man aufm text klickt man wird im Eingabefeld-->
+<input type="text" id="first" onfocus="style.width='100%'" onblur="style.width='100px'"> <!-- eingabefeld -->
+<button type="button" id="btn"> Start</button>
+<input type="text" id="second"> <!-- eingabefeld -->
+<input type="text" id="three"> <!-- onchange="change()" -->
+
+
+<script>
+    var w = 100;
+    document.getElementById("second").addEventListener("focus", bigger)//fokus gefunden
+    document.getElementById("second").addEventListener("blur", color) //Fokus verlust
+    document.getElementById("second").addEventListener("input", btn) //reaktion auf jede eingabe im feld
+    document.getElementById("three").style.width = w + "px"; //dafür dass die breite w sich später vergrössern kann
+    document.getElementById("three").addEventListener("change", change)
+
+    function bigger() {
+        this.style.width = "50%";
+    }
+
+    function color() {
+        this.style.borderColor = "red";
+    }
+
+    function btn() {  //wenn kein text im textfeld dann die Name zurück auf "Start"
+        if (this.value === "") {
+            document.getElementById("btn").innerHTML = "Start";
+        } else {
+            document.getElementById("btn").innerHTML = this.value;
+        }
+    }
+
+    function change() //die breite wird um 10px vergrössert nach jede nderung im Feld+ defocus
+    {
+        w = w + 50;
+        document.getElementById("three").style.width = w + "px";
+    }
+
+    var x = 0;
+    if (x == 0) {
+        x = -1;
+
+    } else {
+        x = 1;
+    }
+    console.log(x);
+
+    var y = 0;
+    y = y == 0 ? -1 : 1;
+    console.log(y);
+</script>
+
+<script>
+    document.getElementById("b1").addEventListener("click", test4); //aufruf vom Website-->also mit seite wird was gemacht .suchen element mit id=b1 .listener dann test4 aufrufen
+    document.getElementById("b2").addEventListener("click", test4);
+
+</script>
+
+<textarea rows="20" cols="40"> 123 </textarea>
+<ul>
+    <li>123</li>
+    <li>123</li>
+    <li>345</li>
+</ul>
+<script src="mockjs.js"></script> <!-- auslesen aus mockjs datei-->
+<script>
+    function createDiv() {
+        var newDiv = document.createElement("div");
+        var newText = document.createTextNode("Klick mich ");
+        newDiv.style.backgroundColor = "blue";
+        newDiv.style.color = "orange";
+        newDiv.style.fontFamily = "Verdana";
+        newDiv.style.fontSize = "150%";
+        newDiv.style.height = "120px";
+        newDiv.style.width = "220px";
+        newDiv.style.padding = "40px;"
+        newDiv.style.marginTop = "20px";
+        newDiv.setAttribute("id", "div1");
+        newDiv.appendChild(newText);
+        document.body.appendChild(newDiv);
+        //jtz kommt List
+    }
+    function createList() //List mithilfe eines Arrays !!!
+    {
+        var newUL=document.createElement("ul"); //objekten unabhängig voneinander
+        for(var i=0; i<mockdata.length;i++)
+        {
+            var newLi = document.createElement("li");
+            var textnode = document.createTextNode(mockdata[i]);//aus welche aray lesen wir data aus deswegen name des arrays vor i
+            newLi.appendChild(textnode); //text ist ein Objekt//text ist innerhalb von Li
+            newUL.appendChild(newLi); //li innerhalb von UL
+        }
+        document.body.appendChild(newUL); // damit es auf der Seite angezeigt ist //appendchild packt inhalt am ende der seite
+
+
+    }
+
+
+    createDiv();
+    createList();
+</script>
+
+// php 1 spalten tabelle
+
+<!--<div class="col col-md-3 list-group "><h3>Auswahl Spieler</h3>
+    <?php echo '<table class="table table-hover table-responsive">';
+    echo "<tbody>";
+    for ($i = 0; $i < count($player); $i++) //ganzes array durchgehen 0-1-2-3
+    {
+    echo '<tr>';
+        echo '<td>' . $player[$i]["name"] . '</td>';//
+        echo '</tr>';
+    }
+    echo '</tbody> </table>';
+    ?>
+</div>-->
+
+
 </body>
 </html>
