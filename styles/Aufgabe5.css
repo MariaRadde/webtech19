@@ -1,0 +1,33 @@
+h1 {
+    color: #FFFFFF;
+    background-color: #ac2925;
+    margin: 20px;
+    padding: 7px;
+    text-align: center;
+}
+
+thead {
+    font-size: large;
+}
+
+.navbar-nav > li > a:visited {
+    color: #0082D1;
+}
+
+.table-hover > tbody > tr:hover {
+    background-color: #8dd9dc;
+}
+
+section {
+    margin-left: 20px;
+    padding-left: 0px;
+}
+
+td {
+    text-align: right;
+}
+
+.table-size {
+    width: 98%;
+    table-layout: fixed;
+}
