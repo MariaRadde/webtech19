@@ -3,9 +3,41 @@ body {
     font-size:1rem;
 }
 
-@media screen and (min-width: 480px) {
+
+
+
+#links {background-color: #007bff; color: white}
+#mitte {background-color: #0056b3;color: white}
+#rechts {background-color: black; color: white}
+#unten {background-color: #5a6268 }
+#oben {background-color: #0056b3; color: white}
+
+.flex-item1 {flex:1;}
+.flex-item2{flex:4;}
+.flex-item3{flex:2;}
+
+@media screen and (min-width: 960px) {
     body {
         background-color: #0082D1;	/* HTW-blau */
         font-size:1.2rem;
     }
+
+
+.flex-container{
+                    display: flex;
+                    flex: 1;
+                    flex-direction: column;
+
+
+                  }
+
+
+
+    #oben {background-color:#b1dfbb; color: black}
+    #links {background-color: #1c7430; color: white}
+    #mitte {background-color: #0b2e13;color: white}
+    #rechts {background-color: #155724;color: white}
+    #unten {background-color:#b1dfbb }
+
+
 }
